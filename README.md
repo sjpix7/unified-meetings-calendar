@@ -1,4 +1,4 @@
-# Unified Meetings Calendar
+# 🗓️ Unified Meetings Calendar
 
 A small service to pull meetings from two systems, a CRM and a Calendar, figures out which records are of the same meeting, and serves a single merged list over a single REST API to be sent to the front end. A React calendar for a combined result.
 
