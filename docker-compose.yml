@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: ./backend
+    environment:
+      - DATA_DIR=/data
+      - APP_TIMEZONE=America/New_York
+    volumes:
+      # The two source "APIs", mounted read-only. Edit the files and hit Re-sync in the UI.
+      - ./data:/data:ro
+    ports:
+      - "${API_PORT:-4000}:4000"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "${WEB_PORT:-3000}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
